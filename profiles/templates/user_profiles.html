@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>LSAMP Alumni Mentors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- tab incon -->
+    <link rel="shortcut icon" type="image/png" href="media/favicon.ico">
+
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<style type="text/css">
+body{
+ background:#EEEEEE;
+}
+.user-profile-2 {
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+
+.box-info {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+    -webkit-transition: All 0.4s ease;
+    -moz-transition: All 0.4s ease;
+    -o-transition: All 0.4s ease;
+    border-bottom:4px solid #DDDDDD;
+}
+
+.user-profile-2 .header-cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 130px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.user-profile-2 .user-profile-inner {
+    z-index: 2;
+    position: relative;
+}
+
+.user-profile-2 .user-profile-inner h4.white {
+    color: #fff;
+}
+
+.user-profile-2 .user-profile-inner img.profile-avatar {
+    box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    border: none;
+    width:150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 0%;
+}
+
+.user-button {
+    margin: 15px 0;
+}
+</style>
+
+<!-- nav bar -->
+<nav class="navbar navbar-light bg-info justify-content-between">
+  <a class=" d-inline navbar-brand" href="https://www.lsampalumni.com/">
+    <img src="media/NALA logo updated 2021.png" width="60dp" height="30dp" class="d-inline align-top" alt="">
+  </a>
+
+        <form class="form-inline " method=POST action="{% url 'profiles'%}">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search" name="searched">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+  </form>
+</nav>
+
+{% for profile in user_data %}
+    {% if forloop.counter0|divisibleby:3%}
+        <div class="container bootstrap snippets bootdey">
+    {% endif %}
+            <div class="col-sm-4">
+      <!-- Begin user profile -->
+      <div class="box-info text-center user-profile-2">
+        <div class="header-cover">
+<!--          <img src="https://via.placeholder.com/350x280/FFB6C1/000000" alt="User cover">-->
+        </div>
+        <div class="user-profile-inner">
+          <h4 class="black">{{profile}}</h4>
+          <img src="{{profile.picture.url}}" onerror="if (this.src != 'media/default.jpg') this.src = 'media/default.jpg';" class="img-circle profile-avatar" alt="User avatar">
+          <h5>{{profile.title}}</h5>
+          <h5>{{profile.organization}}</h5>
+
+          <!-- User button -->
+          <div class="user-button">
+            <div class="row">
+              <div class="col-md-6">
+                  <a href="{% url 'bio' item_id=profile.id  %}"><button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> View Bio</button></a>
+              </div>
+              <div class="col-md-6">
+                <a href="mailto: {{profile.email}}"><button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Email</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if forloop.counter|divisibleby:3%}
+        </div>
+    {% endif %}
+
+{% endfor %}
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

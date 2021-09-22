@@ -1,0 +1,66 @@
+amqp==5.0.6
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1625395912402/work
+billiard==3.6.4.0
+celery==5.1.2
+certifi==2021.5.30
+cffi==1.14.6
+charset-normalizer==2.0.4
+click==7.1.2
+click-didyoumean==0.0.3
+click-plugins==1.1.1
+click-repl==0.2.0
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1625148501818/work
+django-celery-beat==2.2.1
+django-celery-results==2.2.0
+django-filter==2.4.0
+django-timezone-field==4.2.1
+idna==3.2
+kombu==5.1.0
+Pillow==8.3.1
+prompt-toolkit==3.0.20
+pycparser==2.20
+python-crontab==2.5.1
+python-dateutil==2.8.2
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+rabbitmq==0.2.0
+redis==3.5.3
+requests==2.26.0
+six==1.16.0
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1602142927465/work
+typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1622748266870/work
+urllib3==1.26.6
+vine==5.0.0
+wcwidth==0.2.5
+amqp==5.0.6
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1625395912402/work
+billiard==3.6.4.0
+celery==5.1.2
+certifi==2021.5.30
+cffi==1.14.6
+charset-normalizer==2.0.4
+click==7.1.2
+click-didyoumean==0.0.3
+click-plugins==1.1.1
+click-repl==0.2.0
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1625148501818/work
+django-celery-beat==2.2.1
+django-celery-results==2.2.0
+django-filter==2.4.0
+django-timezone-field==4.2.1
+idna==3.2
+kombu==5.1.0
+Pillow==8.3.1
+prompt-toolkit==3.0.20
+pycparser==2.20
+python-crontab==2.5.1
+python-dateutil==2.8.2
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+rabbitmq==0.2.0
+redis==3.5.3
+requests==2.26.0
+six==1.16.0
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1602142927465/work
+typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1622748266870/work
+urllib3==1.26.6
+vine==5.0.0
+wcwidth==0.2.5
