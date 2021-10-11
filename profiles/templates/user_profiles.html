@@ -496,7 +496,7 @@ body{
 
         <form class="form-inline " method=POST action="{% url 'profiles'%}">
             {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Name" aria-label="Search" name="searched">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Profiles" aria-label="Search" name="searched">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
 
@@ -527,6 +527,9 @@ body{
   </form>
 </nav>
 
+<div class="container p-5 text-center ">
+    <h1 >NALA Member Directory</h1>
+    </div>
 {% for profile in user_data %}
     {% if forloop.counter0|divisibleby:3%}
         <div class="container bootstrap snippets bootdey">
