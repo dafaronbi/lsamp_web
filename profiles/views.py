@@ -172,7 +172,7 @@ def list_view(request):
             all = all.filter(Q(fName__contains=searched) | Q(lName__contains=searched) | Q(title__contains=searched) | Q(organization__contains=searched))
     return render(request, 'user_profiles.html',{'user_data':all})
 
-def bio_view(request,item_id):
-    item = user.objects.get(id=item_id)
+def bio_view(request,picture_string):
+    item = user.objects.get(picture=picture_string)
     return render(request, 'bio.html',{'data':item})
 
