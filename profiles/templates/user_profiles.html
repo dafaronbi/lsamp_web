@@ -494,7 +494,7 @@ body{
     <div class="navbar-brand my-2 my-sm-0" href="https://www.lsampalumni.com/">
           </div>
 
-        <form class="form-inline " method=POST action="{% url 'profiles'%}">
+        <form class="form-inline " method=GET action="{% url 'profiles'%}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Search Profiles" aria-label="Search" name="searched">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -550,7 +550,7 @@ body{
           <div class="user-button">
             <div class="row">
               <div class="col-md-6">
-                  <a href="{% url 'bio' item_id=profile.id  %}"><button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> View Bio</button></a>
+                  <a href="{% url 'bio' picture_string=profile.picture  %}"><button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> View Bio</button></a>
               </div>
               <div class="col-md-6">
                 <a href="mailto: {{profile.email}}"><button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-user"></i> Email</button></a>

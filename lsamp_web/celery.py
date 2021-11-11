@@ -15,8 +15,8 @@ app.conf.update(timezone = "America/New_York")
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
-    # update database every 10 seconds.
-    sender.add_periodic_task(300, download_data.s(), name='update-data-base')
+    # update database every hour.
+    sender.add_periodic_task(3600, download_data.s(), name='update-data-base')
 
 
 # Using a string here means the worker doesn't have to serialize

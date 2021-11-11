@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect,reverse
 from django.db.models import Q
+from . import views
 from django.core.files import File
 from .models import user
 import requests
 import os
 from collections import Counter
+from django.db.models import CharField
 
 def update_database():
     #delete old model
@@ -164,12 +166,24 @@ def update_database():
 
 def list_view(request):
     update_database()
+
     all = user.objects.order_by('lName')
 
-    if request.method == "POST":
-        searched = request.POST['searched']
+    if 'searched' in request.GET:
+        searched = request.GET['searched']
         if searched != "":
-            all = all.filter(Q(fName__contains=searched) | Q(lName__contains=searched) | Q(title__contains=searched) | Q(organization__contains=searched))
+            # all = all.filter(Q(fName__contains=searched) | Q(lName__contains=searched) | Q(title__contains=searched) | Q(organization__contains=searched))
+            #get all fields from model
+            fields = [f for f in user._meta.fields if isinstance(f, CharField)]
+
+            #create queries
+            queries = [Q(**{f.name + "__contains": searched}) for f in fields]
+            qs = Q()
+            for query in queries:
+                qs = qs | query
+
+            #filter data
+            all = all.filter(qs)
     return render(request, 'user_profiles.html',{'user_data':all})
 
 def bio_view(request,picture_string):
